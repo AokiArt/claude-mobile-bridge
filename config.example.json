@@ -1,0 +1,6 @@
+{
+  "app_id": "cli_你的飞书应用ID",
+  "app_secret": "你的飞书应用Secret",
+  "group_chat_id": "oc_遥控器群的chat_id",
+  "p2p_chat_id": "oc_机器人单聊会话的chat_id"
+}
