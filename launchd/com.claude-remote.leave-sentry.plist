@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- 安装：把下面三处 __HOME__ 替换为你的家目录（如 /Users/you），再执行
+     cp com.claude-remote.leave-sentry.plist ~/Library/LaunchAgents/
+     launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-remote.leave-sentry.plist
+     卸载：launchctl bootout gui/$(id -u)/com.claude-remote.leave-sentry -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.claude-remote.leave-sentry</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <!-- 若用 brew 的 python 请改成绝对路径（launchd 不走 PATH） -->
+    <string>__HOME__/.claude/hooks/leave_sentry.py</string>
+  </array>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>ProcessType</key><string>Background</string>
+  <key>StandardOutPath</key><string>__HOME__/.claude/remote/leave_sentry.log</string>
+  <key>StandardErrorPath</key><string>__HOME__/.claude/remote/leave_sentry.log</string>
+</dict>
+</plist>
